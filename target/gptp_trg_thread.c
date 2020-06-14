@@ -1,6 +1,6 @@
 #include <string.h>
 #include <pthread.h>
-#include "gptp_os_thread.h"
+#include "gptp_trg_thread.h"
 
 
 static void *k_thread_thread(void *ptr)

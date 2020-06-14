@@ -4,7 +4,7 @@
 #include <pthread.h>
 
 #include <logging/log.h>
-#include <gptp_os_sys.h>
+#include <gptp_trg_sys.h>
 
 
 

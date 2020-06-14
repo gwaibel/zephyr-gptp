@@ -4,10 +4,10 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-#ifndef GPTP_OS_PTP_H
-#define GPTP_OS_PTP_H
+#ifndef GPTP_TRG_PTP_H
+#define GPTP_TRG_PTP_H
 
-#include "gptp_os_types.h"
+#include "gptp_trg_types.h"
 #include "net/ptp_time.h"
 
 

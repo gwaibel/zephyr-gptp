@@ -1,5 +1,5 @@
-#include "gptp_os_net.h"
-#include "gptp_os_sys.h"
+#include "gptp_trg_net.h"
+#include "gptp_trg_sys.h"
 
 
 

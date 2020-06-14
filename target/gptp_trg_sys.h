@@ -4,15 +4,15 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-#ifndef GPTP_OS_SYS_H
-#define GPTP_OS_SYS_H
+#ifndef GPTP_TRG_SYS_H
+#define GPTP_TRG_SYS_H
 
 /*
  * This header provides basic OS types for the gptp stack.
  * This file shall be deployed with the gptp API headers.
  */
 
-#include "gptp_os_types.h"
+#include "gptp_trg_types.h"
 
 
 typedef struct _snode sys_snode_t;

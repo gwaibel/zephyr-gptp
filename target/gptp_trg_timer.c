@@ -4,8 +4,8 @@
 #include <pthread.h>
 #include <signal.h>
 #include <assert.h>
-#include "gptp_os_thread.h"
-#include "gptp_os_timer.h"
+#include "gptp_trg_thread.h"
+#include "gptp_trg_timer.h"
 
 
 static pthread_t mt_TimerThread;

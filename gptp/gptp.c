@@ -18,7 +18,7 @@ LOG_MODULE_REGISTER(net_gptp, CONFIG_NET_GPTP_LOG_LEVEL);
 #include "gptp_data_set.h"
 
 #include "gptp_private.h"
-#include "gptp_os_queue.h"
+#include "gptp_trg_queue.h"
 
 #define NET_GPTP_STACK_SIZE 2048
 

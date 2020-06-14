@@ -5,8 +5,8 @@
 #include <logging/log.h>
 LOG_MODULE_DECLARE(net_gptp, CONFIG_NET_GPTP_LOG_LEVEL);
 
-#include "gptp_os_net.h"
-#include "gptp_os_queue.h"
+#include "gptp_trg_net.h"
+#include "gptp_trg_queue.h"
 
 
 K_FIFO_DEFINE(queue);

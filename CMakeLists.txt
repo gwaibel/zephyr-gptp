@@ -31,12 +31,12 @@ target_sources(gptp
       gptp/gptp_messages.c
       gptp/gptp_mi.c
       gptp/gptp_user_api.c
-      target/gptp_os_sys.c
-      target/gptp_os_timer.c
-      target/gptp_os_thread.c
-      target/gptp_os_net.c
-      target/gptp_os_ptp.c
-      main.c
+      target/gptp_trg_sys.c
+      target/gptp_trg_timer.c
+      target/gptp_trg_thread.c
+#      target/gptp_trg_net.c
+      target/gptp_trg_ptp.c
+#      main.c
 )
 target_include_directories(gptp
    PRIVATE

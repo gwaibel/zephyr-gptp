@@ -1,0 +1,3 @@
+/home/georg/Projects/zephyr-rtos/gptp/build/CMakeFiles/rebuild_cache.dir
+/home/georg/Projects/zephyr-rtos/gptp/build/CMakeFiles/gptp.dir
+/home/georg/Projects/zephyr-rtos/gptp/build/CMakeFiles/edit_cache.dir

@@ -4,8 +4,8 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-#ifndef GPTP_OS_TYPES_H
-#define GPTP_OS_TYPES_H
+#ifndef GPTP_TRG_TYPES_H
+#define GPTP_TRG_TYPES_H
 
 /*
  * This header provides the standard types for the gptp stack.
@@ -29,10 +29,5 @@
 #ifndef __packed
  #define __packed             __attribute__((__packed__))
 #endif
-
-#ifndef __aligned
- #define __aligned(x)	      __attribute__((__aligned__(x)))
-#endif
-
 
 #endif

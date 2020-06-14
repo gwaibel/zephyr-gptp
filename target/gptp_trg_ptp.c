@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-#include "gptp_os_ptp.h"
+#include "gptp_trg_ptp.h"
 
 
 

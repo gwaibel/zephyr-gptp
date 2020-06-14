@@ -4,15 +4,15 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-#ifndef GPTP_OS_NET_H
-#define GPTP_OS_NET_H
+#ifndef GPTP_TRG_NET_H
+#define GPTP_TRG_NET_H
 
-#include "gptp_os_types.h"
-#include "gptp_os_sys.h"
-#include "gptp_os_timer.h"
+#include "gptp_trg_types.h"
+#include "gptp_trg_sys.h"
+#include "gptp_trg_timer.h"
 #include <net/ptp_time.h>
 
-#include "gptp_os_target.h"
+#include "gptp_trg_target.h"
 
 
 #define NET_ASSERT(cond, ...) __ASSERT(cond, "" __VA_ARGS__)

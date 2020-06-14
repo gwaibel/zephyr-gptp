@@ -13,7 +13,7 @@ LOG_MODULE_DECLARE(net_gptp, CONFIG_NET_GPTP_LOG_LEVEL);
 #include "gptp_data_set.h"
 #include "gptp_state.h"
 #include "gptp_private.h"
-#include "gptp_os_ptp.h"
+#include "gptp_trg_ptp.h"
 
 #if CONFIG_NET_GPTP_LOG_LEVEL >= LOG_LEVEL_DBG
 static const char * const state2str(enum gptp_port_state state)

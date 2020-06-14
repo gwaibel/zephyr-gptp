@@ -4,12 +4,12 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-#ifndef GPTP_OS_TIMER_H
-#define GPTP_OS_TIMER_H
+#ifndef GPTP_TRG_TIMER_H
+#define GPTP_TRG_TIMER_H
 
-#include "gptp_os_types.h"
-#include "gptp_os_sys.h"
-#include "gptp_os_thread.h"
+#include "gptp_trg_types.h"
+#include "gptp_trg_sys.h"
+#include "gptp_trg_thread.h"
 
 
 #define USEC_PER_SEC                (1000U * 1000U)

@@ -13,7 +13,7 @@
 #ifndef __GPTP_STATE_H
 #define __GPTP_STATE_H
 
-#include "gptp_os_timer.h"
+#include "gptp_trg_timer.h"
 #include "gptp_mi.h"
 
 #ifdef __cplusplus

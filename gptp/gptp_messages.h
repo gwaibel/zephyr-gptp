@@ -16,7 +16,7 @@
 
 //GW#include <net/net_pkt.h>
 //GW#include <net/ethernet.h>
-#include <gptp_os_net.h>
+#include <gptp_trg_net.h>
 #include <net/gptp.h>
 
 #ifdef __cplusplus

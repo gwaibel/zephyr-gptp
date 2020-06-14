@@ -4,12 +4,12 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-#ifndef GPTP_OS_FIFO_H
-#define GPTP_OS_FIFO_H
+#ifndef GPTP_TRG_FIFO_H
+#define GPTP_TRG_FIFO_H
 
 #include <unistd.h>
-#include "gptp_os_types.h"
-#include "gptp_os_sys.h"
+#include "gptp_trg_types.h"
+#include "gptp_trg_sys.h"
 
 
 #define K_FIFO_DEFINE(name) struct k_queue name

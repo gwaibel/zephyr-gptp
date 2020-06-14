@@ -12,7 +12,7 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include <endian.h>
-#include "gptp_os_types.h"
+#include "gptp_trg_types.h"
 
 #include <errno.h>
 #include <stddef.h>

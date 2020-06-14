@@ -4,11 +4,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-#ifndef GPTP_OS_THREAD_H
-#define GPTP_OS_THREAD_H
+#ifndef GPTP_TRG_THREAD_H
+#define GPTP_TRG_THREAD_H
 
 #include <pthread.h>
-#include "gptp_os_types.h"
+#include "gptp_trg_types.h"
 
 
 #define K_THREAD_STACK_DEFINE(name,size)     static char name[size]
