@@ -14,13 +14,24 @@
 #ifndef __GPTP_MESSAGES_H
 #define __GPTP_MESSAGES_H
 
-#include <net/net_pkt.h>
-#include <net/ethernet.h>
+//GW#include <net/net_pkt.h>
+//GW#include <net/ethernet.h>
+#include <gptp_os_net.h>
 #include <net/gptp.h>
 
 #ifdef __cplusplus
 extern "C" {
 #endif
+
+/**
+ * @brief Return pointer to gPTP packet header in network packet.
+ *
+ * @param pkt Network packet (received or sent)
+ *
+ * @return Pointer to gPTP header.
+ */
+struct gptp_hdr *gptp_get_hdr(struct net_pkt *pkt);
+
 
 /* Helpers to access gPTP messages. */
 #define GPTP_HDR(pkt) gptp_get_hdr(pkt)

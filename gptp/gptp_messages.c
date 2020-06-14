@@ -7,7 +7,7 @@
 #include <logging/log.h>
 LOG_MODULE_DECLARE(net_gptp, CONFIG_NET_GPTP_LOG_LEVEL);
 
-#include <net/net_if.h>
+//#include <net/net_if.h>
 
 #include "gptp_messages.h"
 #include "gptp_data_set.h"
@@ -56,6 +56,7 @@ static const struct net_eth_addr gptp_multicast_eth_addr = {
 
 struct gptp_hdr *gptp_get_hdr(struct net_pkt *pkt)
 {
+#if 0
 	struct net_buf *buf = pkt->frags;
 
 	NET_ASSERT(buf);
@@ -76,6 +77,8 @@ struct gptp_hdr *gptp_get_hdr(struct net_pkt *pkt)
 	}
 
 	return (struct gptp_hdr *)buf->data;
+#endif
+	return (struct gptp_hdr *)pkt->pbuf->payload;
 }
 
 static void gptp_sync_timestamp_callback(struct net_pkt *pkt)
@@ -168,6 +171,12 @@ static struct net_pkt *setup_gptp_frame(struct net_if *iface,
 		return NULL;
 	}
 
+	/* Setup link layer for packet (Ethernet frame header */
+	net_pkt_set_lladdr_dest(pkt, &gptp_multicast_eth_addr);
+	net_pkt_set_lladdr_src(pkt, net_if_get_link_addr(iface));
+	net_pkt_set_lltype(pkt, htons(0x88F7));
+
+#if 0
 	net_buf_add(pkt->buffer, sizeof(struct gptp_hdr) + extra_header);
 	net_pkt_set_gptp(pkt, true);
 
@@ -176,6 +185,7 @@ static struct net_pkt *setup_gptp_frame(struct net_if *iface,
 
 	net_pkt_lladdr_dst(pkt)->addr = (uint8_t *)&gptp_multicast_eth_addr;
 	net_pkt_lladdr_dst(pkt)->len = sizeof(struct net_eth_addr);
+#endif
 
 	return pkt;
 }

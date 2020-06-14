@@ -108,6 +108,7 @@ void gptp_update_announce_interval(int port, int8_t log_val);
  *
  * @return Number of nanoseconds.
  */
+#define NSEC_PER_SEC (1000U*1000U*1000U)
 static inline uint64_t gptp_timestamp_to_nsec(struct net_ptp_time *ts)
 {
 	if (!ts) {

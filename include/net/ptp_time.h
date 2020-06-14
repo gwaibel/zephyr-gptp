@@ -20,8 +20,7 @@
  * @{
  */
 
-#include <net/net_core.h>
-#include <toolchain.h>
+#include <gptp_trg_types.h>
 
 #ifdef __cplusplus
 extern "C" {

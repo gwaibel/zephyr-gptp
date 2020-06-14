@@ -19,10 +19,9 @@
  * @ingroup networking
  * @{
  */
-
-#include <net/net_core.h>
+#include <gptp_trg_types.h>
+#include <gptp_trg_sys.h>
 #include <net/ptp_time.h>
-#include <stdbool.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -296,8 +295,9 @@ char *gptp_sprint_clock_id(const uint8_t *clk_id, char *output,
  * @param iface Pointer to network interface
  * @param user_data A valid pointer to user data or NULL
  */
-typedef void (*gptp_port_cb_t)(int port, struct net_if *iface,
-			       void *user_data);
+// GO: TODO Do we need this function here? This would require to export struct net_if to user.
+//typedef void (*gptp_port_cb_t)(int port, struct net_if *iface,
+//			       void *user_data);
 
 /**
  * @brief Go through all the gPTP ports and call callback for each of them.
@@ -305,7 +305,8 @@ typedef void (*gptp_port_cb_t)(int port, struct net_if *iface,
  * @param cb User-supplied callback function to call
  * @param user_data User specified data
  */
-void gptp_foreach_port(gptp_port_cb_t cb, void *user_data);
+// GO: TODO Do we need this function here?
+//void gptp_foreach_port(gptp_port_cb_t cb, void *user_data);
 
 /**
  * @brief Get gPTP domain.
@@ -330,7 +331,11 @@ void gptp_clk_src_time_invoke(struct gptp_clk_src_time_invoke_params *arg);
  *
  * @return Pointer to gPTP header.
  */
-struct gptp_hdr *gptp_get_hdr(struct net_pkt *pkt);
+/*
+ * GW: Moved this to an internal header to make it invisible for the user application.
+ * This allows to hide the net_pkt struct from the user.
+ * struct gptp_hdr *gptp_get_hdr(struct net_pkt *pkt);
+ */
 
 #ifdef __cplusplus
 }

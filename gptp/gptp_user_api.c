@@ -12,8 +12,9 @@ LOG_MODULE_DECLARE(net_gptp, CONFIG_NET_GPTP_LOG_LEVEL);
 
 #include "gptp_messages.h"
 #include "gptp_data_set.h"
+#include "gptp_os_ptp.h"
 
-#include "net_private.h"
+//#include "net_private.h"
 
 static sys_slist_t phase_dis_callbacks;
 

@@ -7,9 +7,9 @@
 #include <logging/log.h>
 LOG_MODULE_REGISTER(net_gptp, CONFIG_NET_GPTP_LOG_LEVEL);
 
-#include <net/net_pkt.h>
-#include <ptp_clock.h>
-#include <net/ethernet_mgmt.h>
+//#include <net/net_pkt.h>
+//#include <ptp_clock.h>
+//#include <net/ethernet_mgmt.h>
 
 #include <net/gptp.h>
 
@@ -18,6 +18,7 @@ LOG_MODULE_REGISTER(net_gptp, CONFIG_NET_GPTP_LOG_LEVEL);
 #include "gptp_data_set.h"
 
 #include "gptp_private.h"
+#include "gptp_os_queue.h"
 
 #define NET_GPTP_STACK_SIZE 2048
 
@@ -819,6 +820,8 @@ void gptp_update_announce_interval(int port, int8_t log_val)
 		      K_NO_WAIT);
 }
 
+/* GW: Do we need this function at all? */
+#if 0
 struct port_user_data {
 	gptp_port_cb_t cb;
 	void *user_data;
@@ -851,6 +854,7 @@ void gptp_foreach_port(gptp_port_cb_t cb, void *user_data)
 
 	net_if_foreach(gptp_get_port, &ud);
 }
+#endif
 
 struct gptp_domain *gptp_get_domain(void)
 {
