@@ -115,6 +115,7 @@ struct net_pkt {
  */
 struct net_if {
 	int tx_pending;
+	int ptp_port;
 }; //__net_if_align;
 
 /**
@@ -162,6 +163,18 @@ struct net_if_timestamp_cb {
  */
 struct net_linkaddr *net_if_get_link_addr(struct net_if *iface);
 
+
+/**
+ * @brief Set gPTP port number attached to this interface.
+ *
+ * @param iface Network interface
+ * @param port Port number to set
+ */
+static inline void net_eth_set_ptp_port(struct net_if *iface, int port)
+{
+	iface->ptp_port = port;
+}
+
 /**
  * @brief Return gPTP port number attached to this interface.
  *
@@ -169,7 +182,12 @@ struct net_linkaddr *net_if_get_link_addr(struct net_if *iface);
  *
  * @return Port number, no such port if < 0
  */
-int net_eth_get_ptp_port(struct net_if *iface);
+static inline int net_eth_get_ptp_port(struct net_if *iface)
+{
+	return iface->ptp_port;
+}
+
+
 
 void net_pkt_set_lladdr_dest(struct net_pkt *pkt, struct net_linkaddr *lladdr);
 void net_pkt_set_lladdr_src(struct net_pkt *pkt, struct net_linkaddr *lladdr);
@@ -302,14 +320,6 @@ int net_pkt_write(struct net_pkt *pkt, const void *data, size_t length);
  * ethernet interface does not support PTP.
  */
 struct device *net_eth_get_ptp_clock(struct net_if *iface);
-
-/**
- * @brief Set gPTP port number attached to this interface.
- *
- * @param iface Network interface
- * @param port Port number to set
- */
-void net_eth_set_ptp_port(struct net_if *iface, int port);
 
 
 

@@ -140,21 +140,9 @@ void net_pkt_set_lltype(struct net_pkt *pkt, uint16_t type)
 
 
 
-
-
-int net_eth_get_ptp_port(struct net_if *iface)
-{
-   return 0;
-}
-
 struct device *net_eth_get_ptp_clock(struct net_if *iface)
 {
    return NULL;
-}
-
-void net_eth_set_ptp_port(struct net_if *iface, int port)
-{
-
 }
 
 void net_if_queue_tx(struct net_if *iface, struct net_pkt *pkt)
@@ -179,12 +167,73 @@ struct net_linkaddr *net_if_get_link_addr(struct net_if *iface)
    return NULL;
 }
 
-char *net_sprint_ll_addr_buf(const uint8_t *ll, uint8_t ll_len, char *buf, int buflen)
-{
-   return NULL;
-}
 
 void net_if_foreach(net_if_cb_t cb, void *user_data)
 {
+   for (each if with a ptp clock)
+   {
+      struct net_if pt_Netif = ??;
 
+      cp(pt_Netif, user_data);
+   }
+}
+
+
+
+
+
+
+static char *net_byte_to_hex(char *ptr, uint8_t byte, char base, bool pad)
+{
+	int i, val;
+
+	for (i = 0, val = (byte & 0xf0) >> 4; i < 2; i++, val = byte & 0x0f) {
+		if (i == 0 && !pad && !val) {
+			continue;
+		}
+		if (val < 10) {
+			*ptr++ = (char) (val + '0');
+		} else {
+			*ptr++ = (char) (val - 10 + base);
+		}
+	}
+
+	*ptr = '\0';
+
+	return ptr;
+}
+
+char *net_sprint_ll_addr_buf(const uint8_t *ll, uint8_t ll_len,
+			     char *buf, int buflen)
+{
+	uint8_t i, len, blen;
+	char *ptr = buf;
+
+	switch (ll_len) {
+	case 8:
+		len = 8U;
+		break;
+	case 6:
+		len = 6U;
+		break;
+	case 2:
+		len = 2U;
+		break;
+	default:
+		len = 6U;
+		break;
+	}
+
+	for (i = 0U, blen = buflen; i < len && blen > 0; i++) {
+		ptr = net_byte_to_hex(ptr, (char)ll[i], 'A', true);
+		*ptr++ = ':';
+		blen -= 3U;
+	}
+
+	if (!(ptr - buf)) {
+		return NULL;
+	}
+
+	*(ptr - 1) = '\0';
+	return buf;
 }
